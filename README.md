@@ -1,8 +1,8 @@
 <table border="0">
   <tr>
     <td>
-      <!-- VERSION -->v1.00.00<br>
-      <!-- DATE -->May-2026<br>
+      <!-- VERSION -->v6.07.05<br>
+      <!-- DATE -->09-Jul-2026<br>
       macOS &nbsp;|&nbsp; Windows &nbsp;|&nbsp; Linux<br>
       <a href="https://landenlabs.com">Home</a>
     </td>
@@ -185,8 +185,8 @@ the repo root:
 ./set-version.bash -version 1.0.1 -message "Add language auto-detection"
 ```
 
-This updates `VERSION`, `version.py` (`__version__`), and the `<!-- VERSION -->` /
-`<!-- DATE -->` markers in this README, then commits, tags, and pushes — which triggers
+This updates `VERSION`, `version.py` (`__version__`), and the `<!-- VERSION -->v6.07.05 /
+`<!-- DATE -->09-Jul-2026
 the release build above.
 
 ---
