@@ -94,6 +94,9 @@ pyinstaller --onefile --name img2txt img2txt.py
 
 Both commands use [PyInstaller](https://pyinstaller.org) to produce a self-contained executable.
 
+Pushing a `v*` tag (e.g. `v1.0.0`) triggers `.github/workflows/build.yml`, which builds
+macOS and Windows binaries and publishes them to a GitHub Release automatically.
+
 ---
 
 ## Usage
@@ -160,11 +163,31 @@ python img2txt.py --input doc.png --scale 2
 
 ```
 img2txt/
-├── img2txt.py          # Main script (single-file CLI)
+├── img2txt.py                   # Main script (single-file CLI)
+├── version.py                   # Version string (__version__)
+├── VERSION                      # Bare X.Y.Z, mirrors version.py
+├── set-version.bash             # Bump version, commit, tag, push (macOS/Linux)
+├── set-version.ps1              # Bump version, commit, tag, push (Windows)
+├── requirements.txt
 ├── README.md
 ├── LICENSE
-└── screens/            # Images used in this README
+└── .github/workflows/build.yml  # Tag-triggered build + GitHub Release
 ```
+
+---
+
+## Releasing
+
+Versions are bumped with `set-version.bash` (or `set-version.ps1` on Windows), run from
+the repo root:
+
+```bash
+./set-version.bash -version 1.0.1 -message "Add language auto-detection"
+```
+
+This updates `VERSION`, `version.py` (`__version__`), and the `<!-- VERSION -->` /
+`<!-- DATE -->` markers in this README, then commits, tags, and pushes — which triggers
+the release build above.
 
 ---
 

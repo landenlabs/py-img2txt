@@ -10,7 +10,9 @@ import glob
 import os
 import sys
 
-VERSION = "v1.00.00 (May-2026)"
+from version import __version__
+
+VERSION = "v%s" % __version__
 
 
 def expand_inputs(patterns):
